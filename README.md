@@ -107,17 +107,17 @@ TimeoutStartSec=0
 WantedBy=default.target
 ```
 
-17.	Reload the systemd daemon and set the routinator service to start at boot
+17.	Configure SELinux to allow connections to localhost and to allow rsync to write to the /opt/routinator directory
+```
+sudo setsebool -P httpd_can_network_connect 1
+sudo semanage permissive -a rsync_t
+```
+
+18.	Reload the systemd daemon and set the routinator service to start at boot
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable routinator.service
 sudo systemctl start routinator.service
-```
-
-18.	Configure SELinux to allow connections to localhost and to allow rsync to write to the /opt/routinator directory
-```
-sudo setsebool -P httpd_can_network_connect 1
-sudo semanage permissive -a rsync_t
 ```
 
 19.	Set up the firewall to permit ssh, https and 8323 (RTR protocol)
