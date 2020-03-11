@@ -32,14 +32,14 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/privat
 Populate the relevant information to generate a self signed certificate
 sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
-7	Add in this file to /etc/nginx/conf.d/ssl.conf and edit ssl.conf file to provide the IP of the host in the "server_name" field.
+7	Add in the ssl.conf file to /etc/nginx/conf.d/ssl.conf and edit ssl.conf file to provide the IP of the host in the "server_name" field.
 ssl.conf
 
-8	Replace /etc/nginx/nginx.conf with this file:
-nginx.conf
+8	Replace /etc/nginx/nginx.conf with the nginx.conf file:
 
-9	Add this file to the /etc/nginx directory:
-proxy.conf
+
+9	Add this proxy.conf file to the /etc/nginx directory:
+
 
 10	Set user/pass for web interface authentication
 sudo htpasswd -c /etc/nginx/.htpasswd <username>
