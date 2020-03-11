@@ -5,7 +5,6 @@ sudo nmtui-hostname
 Hostname will be set
 
 2.	Set the interface and connect it
-
 Please note that "Automatically connect" and "Available to all users" must be checked!
 
 sudo nmtui-edit
@@ -35,10 +34,10 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 7.	Add in the ssl.conf file to /etc/nginx/conf.d/ssl.conf and edit ssl.conf file to provide the IP of the host in the "server_name" field.
 ssl.conf
 
-8.	Replace /etc/nginx/nginx.conf with the nginx.conf file:
+8.	Replace /etc/nginx/nginx.conf with the nginx.conf file
 
 
-9.	Add this proxy.conf file to the /etc/nginx directory:
+9.	Add this proxy.conf file to the /etc/nginx directory
 
 
 10.	Set user/pass for web interface authentication
