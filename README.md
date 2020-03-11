@@ -1,4 +1,5 @@
-# Install Guide for Setting up the Routinator RPKI Validator Software
+# Install Guide for Setting up the Routinator RPKI Validator Software on Centos 7
+## https://github.com/NLnetLabs/routinator
 
 1.	Set the hostname
 sudo nmtui-hostname
@@ -6,9 +7,7 @@ Hostname will be set
 
 2.	Set the interface and connect it
 Please note that "Automatically connect" and "Available to all users" must be checked!
-
 sudo nmtui-edit
-Interface IP address will be set
 
 3.	Install required packages
 sudo yum check-update
@@ -108,5 +107,5 @@ sudo firewall-cmd --reload
 19. Navigate to "https://<IP address of rpki-validator>/metrics" to see if it's working. You should authenticate with the user/pass that you provided in step 10 of setting up the RPKI Validation Server.
 
 
-
+## More info on Routinator can be found at https://rpki.readthedocs.io/en/latest/routinator/
 
