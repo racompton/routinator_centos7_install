@@ -7,7 +7,9 @@ Hostname will be set
 
 2.	Set the interface and connect it
 Please note that "Automatically connect" and "Available to all users" must be checked!
+``rst
 sudo nmtui-edit
+```
 
 3.	Install required packages
 sudo yum check-update
