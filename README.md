@@ -2,8 +2,9 @@
 ## https://github.com/NLnetLabs/routinator
 
 1.	Set the hostname
+```
 sudo nmtui-hostname
-Hostname will be set
+```
 
 2.	Set the interface and connect it
 Please note that "Automatically connect" and "Available to all users" must be checked!
