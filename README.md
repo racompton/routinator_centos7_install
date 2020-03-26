@@ -45,32 +45,30 @@ ssl.conf
 
 8.	Replace /etc/nginx/nginx.conf with the nginx.conf file
 
-9.	Add the proxy.conf file to the /etc/nginx directory
-
-10.	Set user/pass for web interface authentication
+9.	Set user/pass for web interface authentication
 ```
 sudo htpasswd -c /etc/nginx/.htpasswd <username>
 ```
 
-11.	Start nginx and set it up so it starts at boot
+10.	Start nginx and set it up so it starts at boot
 ```
 sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
 
-12.	Add the user "routinator" and create the /opt/routinator directory and assign it to the 'routinator' user and group
+11.	Add the user "routinator" and create the /opt/routinator directory and assign it to the 'routinator' user and group
 ```
 sudo useradd routinator
 sudo mkdir /opt/routinator
 sudo chown routinator:routinator /opt/routinator
 ```
 
-13.	Sudo over to the routinator user
+12.	Sudo over to the routinator user
 ```
 sudo su - routinator
 ```
 
-14.	Install the routinator software and add it to the $PATH for user routinator
+13.	Install the routinator software and add it to the $PATH for user routinator
 ```
 cargo install routinator
 vi /home/routinator/.bash_profile
@@ -78,13 +76,13 @@ Edit the PATH line to include "/home/routinator/.cargo/bin"
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:/home/routinator/.cargo/bin
 ```
 
-15.	Initialize the routinator software and accept the ARIN TAL and exit back to the user with sudo
+14.	Initialize the routinator software and accept the ARIN TAL and exit back to the user with sudo
 ```
 /home/routinator/.cargo/bin/routinator -b /opt/routinator init -f --accept-arin-rpa
 exit
 ```
 
-16.	Create a routinator systemd script from the template below.
+15.	Create a routinator systemd script from the template below.
 Please note that you must populate the IPv4/IPv6 addresses!
 Also, the IPv6 address needs to have brackets '[ ]' around it. For example:
 ```
@@ -108,20 +106,20 @@ TimeoutStartSec=0
 WantedBy=default.target
 ```
 
-17.	Configure SELinux to allow connections to localhost and to allow rsync to write to the /opt/routinator directory
+16.	Configure SELinux to allow connections to localhost and to allow rsync to write to the /opt/routinator directory
 ```
 sudo setsebool -P httpd_can_network_connect 1
 sudo semanage permissive -a rsync_t
 ```
 
-18.	Reload the systemd daemon and set the routinator service to start at boot
+17.	Reload the systemd daemon and set the routinator service to start at boot
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable routinator.service
 sudo systemctl start routinator.service
 ```
 
-19.	Set up the firewall to permit ssh, https and 8323 (RTR protocol)
+18.	Set up the firewall to permit ssh, https and 8323 (RTR protocol)
 ```
 sudo firewall-cmd --permanent --remove-service=ssh --zone=public
 sudo firewall-cmd --permanent --zone public --add-rich-rule='rule family="ipv4" source address="<IPv4 management subnet>" service name=ssh accept'
@@ -133,7 +131,7 @@ sudo firewall-cmd --permanent --zone public --add-rich-rule='rule family="ipv6" 
 sudo firewall-cmd --reload
 ```
 
-20. Navigate to "https://<IP address of rpki-validator>/metrics" to see if it's working. You should authenticate with the user/pass that you provided in step 10 of setting up the RPKI Validation Server.
+19. Navigate to "https://<IP address of rpki-validator>/metrics" to see if it's working. You should authenticate with the user/pass that you provided in step 10 of setting up the RPKI Validation Server.
 
 
 ## More info on Routinator can be found at https://rpki.readthedocs.io/en/latest/routinator/
