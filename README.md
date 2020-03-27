@@ -131,7 +131,7 @@ sudo firewall-cmd --permanent --zone public --add-rich-rule='rule family="ipv6" 
 sudo firewall-cmd --reload
 ```
 
-19. Navigate to "https://<IP address of rpki-validator>/metrics" to see if it's working. You should authenticate with the user/pass that you provided in step 10 of setting up the RPKI Validation Server.
+19. Navigate to "https://(IP address of rpki-validator)/metrics" to see if it's working. You should authenticate with the user/pass that you provided in step 10 of setting up the RPKI Validation Server.
 
 
 ## More info on Routinator can be found at https://rpki.readthedocs.io/en/latest/routinator/
