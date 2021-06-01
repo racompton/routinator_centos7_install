@@ -31,7 +31,7 @@ sudo systemctl stop postfix
 sudo systemctl disable postfix
 ```
 
-6.	Create SSL for nginx
+6.	Set up TLS for nginx
 ```
 sudo mkdir /etc/ssl/private
 sudo chmod 700 /etc/ssl/private
