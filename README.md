@@ -36,7 +36,7 @@ sudo systemctl disable postfix
 sudo mkdir /etc/ssl/private
 sudo chmod 700 /etc/ssl/private
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
-Populate the relevant information to generate a self signed certificate
+# Populate the relevant information to generate a self signed certificate
 sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 ```
 
@@ -72,7 +72,7 @@ sudo su - routinator
 ```
 cargo install routinator
 vi /home/routinator/.bash_profile
-Edit the PATH line to include "/home/routinator/.cargo/bin"
+# Edit the PATH line to include "/home/routinator/.cargo/bin"
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:/home/routinator/.cargo/bin
 ```
 
