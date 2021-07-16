@@ -70,7 +70,7 @@ sudo su - routinator
 
 13.	Install the routinator software and add it to the $PATH for user routinator
 ```
-cargo install routinator
+cargo install --locked routinator
 vi /home/routinator/.bash_profile
 # Edit the PATH line to include "/home/routinator/.cargo/bin"
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:/home/routinator/.cargo/bin
@@ -134,5 +134,5 @@ sudo firewall-cmd --reload
 19. Navigate to "https://(IP address of rpki-validator)/metrics" to see if it's working. You should authenticate with the user/pass that you provided in step 10 of setting up the RPKI Validation Server.
 
 
-## More info on Routinator can be found at https://rpki.readthedocs.io/en/latest/routinator/
+## More info on Routinator can be found at https://routinator.docs.nlnetlabs.nl/
 
